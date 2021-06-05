@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    {% load static %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+	<title>Tv Crib</title>
+</head>
+<body>
+
+	<nav id="nav" class="grid-item">
+			<a href="">
+			<img id="logo" src="{% static 'imgs/logo-white.svg' %}" alt="white logo">
+			</a>
+			<ul class="links">
+				<li><a href="">Movies</a></li>
+				<li><a href="">Series</a></li>
+				<li><a href="">About</a></li>
+			</ul>
+	</nav>
+
+
+    {% block heroshot %}
+    {% endblock %}
+
+    {% block main %}
+    {% endblock %}
+
+	</main>
+
+	<footer id="footer">
+		<a href="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&cc_load_policy=0" target="_blank" ><small>&copy; Copyright 2021, ULHT</small></a>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block heroshot %}
+
+    {% for heroshot in heroshots %}
+        <div id="{{ heroshot }}" class="slide hero-container"
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),url('{% static "imgs/heroshots/"|add:heroshot|add:".jpg" %}')">
+
+		    <div class="hero-text centered">
+			    <h1>Rate your favorite shows!!!</h1>
+		    </div>
+
+		    <div id="hero-icon" class="centered">
+			    <a href="#footer"><span id="expand-more" class="material-icons-outlined md-48">expand_more</span></a>
+		    </div>
+	    </div>
+
+    {% endfor %}
+
+
+
+    <script type="">
+		var slideIndex = 0;
+		showSlides();
+
+		function showSlides() {
+  		var i;
+  		var slides = document.getElementsByClassName("slide");
+  		for (i = 0; i < slides.length; i++) {
+    		slides[i].style.display = "none";
+  		}
+  		slideIndex++;
+  		if (slideIndex > slides.length) {slideIndex = 1}
+  				slides[slideIndex-1].style.display = "block";
+  				setTimeout(showSlides, 5000); // Change image every 2 seconds
+		}
+    </script>
+{% endblock %}
+
+
+
+{% block main %}
+    <main>
+
+    </main>
+
+{% endblock %}
