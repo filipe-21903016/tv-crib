@@ -17,7 +17,7 @@ class CastMember(models.Model):
 
 
 class Character(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=30)
     castMember = models.ForeignKey(CastMember, on_delete=models.CASCADE, related_name="castMember")
 
     def __str__(self):
@@ -25,8 +25,8 @@ class Character(models.Model):
 
 
 class Show(models.Model):
-    name = models.CharField(max_length=30)
-    description = models.TextField(max_length=200)
+    name = models.CharField(max_length=50)
+    description = models.TextField(max_length=900)
     year = models.IntegerField()
     pg = models.IntegerField(default=None)
     category = models.ManyToManyField(Category, related_name="category")
