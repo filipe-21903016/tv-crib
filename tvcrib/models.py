@@ -11,6 +11,7 @@ class Category(models.Model):
 
 class CastMember(models.Model):
     name = models.CharField(max_length=20)
+    photo = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -29,6 +30,7 @@ class Show(models.Model):
     description = models.TextField(max_length=900)
     year = models.IntegerField()
     pg = models.IntegerField(default=None)
+    type = models.CharField(max_length=10)
     category = models.ManyToManyField(Category, related_name="category")
     character = models.ManyToManyField(Character, related_name="character")
     trailerLink = models.CharField(max_length=250)
