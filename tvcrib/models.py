@@ -11,7 +11,7 @@ class Category(models.Model):
 
 class CastMember(models.Model):
     name = models.CharField(max_length=20)
-    photo = models.ImageField(null=True, blank=True)
+    photo = models.ImageField(null=True, blank=True, upload_to='cast_photos/')
 
     def __str__(self):
         return self.name
@@ -25,18 +25,41 @@ class Character(models.Model):
         return self.name
 
 
+def get_movie_cover_name(instance, filename):
+    return f'{instance.pk}/movie_cover.jpg'
+
+
+def get_card_cover_name(instance, filename):
+    return f'{instance.pk}/card_cover.jpg'
+
+
 class Show(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=900)
     year = models.IntegerField()
     pg = models.IntegerField(default=None)
     type = models.CharField(max_length=10)
-    category = models.ManyToManyField(Category, related_name="category")
-    character = models.ManyToManyField(Character, related_name="character")
+    category = models.ManyToManyField(Category, related_name="shows")
+    characters = models.ManyToManyField(Character, related_name="character")
     trailerLink = models.CharField(max_length=250)
-    movieCover = models.ImageField(null=True, blank=True)
-    cardCover = models.ImageField(null=True, blank=True)
+    movieCover = models.ImageField(null=True, blank=True, upload_to=get_movie_cover_name)
+    cardCover = models.ImageField(null=True, blank=True, upload_to=get_card_cover_name)
 
     def __str__(self):
         return self.name
+
+
+class Comentario(models.Model):
+    clareza = models.IntegerField()
+    rigor = models.IntegerField()
+    significancia = models.IntegerField()
+    originalidade = models.IntegerField()
+    logica = models.IntegerField()
+    precisao = models.IntegerField()
+    comentario = models.TextField(max_length=500)
+    classificacaoGlobal = models.IntegerField()
+
+    def __str__(self):
+        return self.comentario
+
 

@@ -1,27 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
-
 {% block heroshot %}
 
     {% for heroshot in heroshots %}
         <div id="{{ heroshot }}" class="slide hero-container"
              style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),url('{% static "imgs/heroshots/"|add:heroshot|add:".jpg" %}')">
 
-		    <div class="hero-text centered">
-			    <h1>Rate your favorite shows!!!</h1>
-		    </div>
+            <div class="hero-text centered">
+                <h1>Rate your favorite shows!!!</h1>
+            </div>
 
-		    <div id="hero-icon" class="centered">
-			    <a href="#footer"><span id="expand-more" class="material-icons-outlined md-48">expand_more</span></a>
-		    </div>
-	    </div>
+            <div id="hero-icon" class="centered">
+                <a href="#footer"><span id="expand-more" class="material-icons-outlined md-48">expand_more</span></a>
+            </div>
+        </div>
 
     {% endfor %}
-
-
 
     <script type="">
 		var slideIndex = 0;
@@ -38,14 +33,34 @@
   				slides[slideIndex-1].style.display = "block";
   				setTimeout(showSlides, 5000); // Change image every 2 seconds
 		}
+
     </script>
+
 {% endblock %}
-
-
 
 {% block main %}
     <main>
+        {% for categoria in categorias %}
+            <div class="section">
+                <a href="" id="" class="categoria">{{ categoria }}</a>
 
+                <div class="categoria-flex">
+                    {% for show in categoria.shows.all %}
+                        <a href="{% url 'tvcrib:show' show.id %}">
+                            {% with pk=show.pk|stringformat:"i" %}
+                                <div class="frame"
+                                     style="background-image: url('{% static "image-db/"|add:pk|add:"/card_cover.jpg" %}')">
+                                    <div class="movie-title">
+                                        <h1>{{ show.name }}</h1>
+                                    </div>
+                                </div>
+                            {% endwith %}
+                        </a>
+                    {% endfor %}
+                </div>
+
+            </div>
+        {% endfor %}
     </main>
 
 {% endblock %}

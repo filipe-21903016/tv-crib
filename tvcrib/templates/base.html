@@ -15,24 +15,24 @@
 <body>
 
 	<nav id="nav" class="grid-item">
-			<a href="">
+			<a href="{% url 'tvcrib:home' %}">
 			<img id="logo" src="{% static 'imgs/logo-white.svg' %}" alt="white logo">
 			</a>
 			<ul class="links">
-				<li><a href="">Movies</a></li>
-				<li><a href="">Series</a></li>
-				<li><a href="">About</a></li>
+				<li><a href="{% url 'tvcrib:movies' %}">Movies</a></li>
+				<li><a href="{% url 'tvcrib:series' %}">Series</a></li>
+                <li><a href="{% url 'quizz:quizz' %}">Quizz</a></li>
+                <li><a href="{% url 'tvcrib:comentarios' %}">Comentarios</a></li>
+                <li><a href="{% url 'contactos:lista' %}">Contactos</a></li>
+				<li><a href="{% url 'tvcrib:about' %}">About</a></li>
 			</ul>
 	</nav>
-
 
     {% block heroshot %}
     {% endblock %}
 
     {% block main %}
     {% endblock %}
-
-	</main>
 
 	<footer id="footer">
 		<a href="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&cc_load_policy=0" target="_blank" ><small>&copy; Copyright 2021, ULHT</small></a>

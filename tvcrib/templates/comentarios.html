@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <main>
+        <form method="POST" action="" class="form-container" style="margin-top: 100px;">
+            {% csrf_token %}
+
+            <fieldset>
+                <legend>Opiniões</legend>
+
+                <section class="clareza">
+                    <label for="clareza">Clareza: (entre 0 e 100)</label>
+                    <input type="range" name="cla" min="0" max="100">
+                </section>
+
+                <section class="rigor">
+                    <label for="rigor">Rigor: (entre 0 e 100)</label>
+                    <input type="range" name="ri" min="0" max="100">
+                </section>
+
+                <section class="significancia">
+                    <label for="significancia">Significancia: (entre 0 e 100)</label>
+                    <input type="range" name="sig" min="0" max="100">
+                </section>
+
+                <section class="originalidade">
+                    <label for="originalidade">Originalidade: (entre 0 e 100)</label>
+                    <input type="range" name="ori" min="0" max="100">
+                </section>
+
+                <section class="logica">
+                    <label for="logica">Lógica: (entre 0 e 100)</label>
+                    <input type="range" name="log" min="0" max="100">
+                </section>
+
+                <section class="precisao">
+                    <label for="precisao">Precisão: (entre 0 e 100)</label>
+                    <input type="range" name="preci" min="0" max="100">
+                </section>
+
+                <section class="classificacaoGlobal">
+                    <label for="classificacaoGlobal">Classificação Global: (entre 0 e 100)</label>
+                    <input type="range" name="global" min="0" max="100">
+                </section>
+
+                <section class="comentario">
+                    <label for="comentario">Comentário:</label>
+                    <textarea name="comment" rows="11" cols="70"></textarea>
+                </section>
+
+                <input type="submit" value="Submit" style="color: black; height:30px; width:50px">
+
+            </fieldset>
+        </form>
+
+
+        {% for comment in comments %}
+            <div class="comment-container">
+                <span class="material-icons-outlined">account_circle</span><p>{{ comment }}</p>
+            </div>
+        {% endfor %}
+
+    </main>
+{% endblock %}

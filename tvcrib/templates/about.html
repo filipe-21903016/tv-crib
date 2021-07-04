@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main %}
+    <main class="grid">
+		<section class="video-container">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/YpTcTyC91mc?modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</section>
+		<aside class="tabela-tecnicas-container">
+			<table class="about-table">
+				<thead>
+				  <tr>
+					<th>Caracteristicas</th>
+					<th>Elementos/técnicas</th>
+					<th>Exemplos</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+					<th>Layouts</th>
+					<td>Usou-se o CSS grid e CSS flexbox para construção de layouts</td>
+					<td>Organização dos conteúdos na página inicial (display das categorias e cartões) e organização dos conteúdos nas páginas das series/filmes (cast/detalhes/trailer/capa)</td>
+				  </tr>
+				  <tr>
+					<th>Responsividade</th>
+					<td>Foram usadas media queries que adaptam o layout para telemovel e PC consoante o tamanho da janela do browser.</td>
+					<td>Todas as pagínas do nosso website são responsivas, na medida em que o ecrã terá de ter pelo menos 768px de largura, senão apresentará um display diferente do original, sendo considerado responsivo</td>
+				  </tr>
+				  <tr>
+					<th>Seletores</th>
+					<td>Foram usados seletores de: classe | id | > | *</td>
+					<td>Respectivamente, cartões na página inicial/séries/filmes; nos detalhes de cada filme (ex: restrições de idade); no container que possuí o trailer do filme, na página do filme; para definir a cor/tipo de letra ao longo do site</td>
+				  </tr>
+				  <tr>
+					<th>Etiquetas</th>
+					<td>HTML5 main, header, article, footer, figure, aside, table, form, nav, figcaption, section, article</td>
+					<td>Estes elementos foram usados ao longo de todas as páginas no nosso website, porém apenas na página sobre os detalhes técnicos é que estão presentes todos os elementos enumerados</td>
+				  </tr>
+				</tbody>
+				<tfoot>
+				  <tr>
+					<th>Animações</th>
+					<td>Foram feitas animações usando keyframes que permite dar alguma esteticidade durante o carregamento da página web</td>
+					<td>Nas páginas respectivas ao tema que escolhemos, obtámos por não usar keyframes, por não ser muito "profissional"(usámos animações à base do :hover), no entanto como era um requesito, usámos nesta página nas duas tabelas e também no vídeo do site</td>
+				  </tr>
+				</tfoot>
+			  </table>
+		</aside>
+		<aside class="tabela-inventario-container">
+			<table class="about-table">
+				<thead>
+				  <tr>
+					<th>Número</th>
+					<th>Inventário</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+					<th>Páginas</th>
+					<td>24</td>
+				  </tr>
+				  <tr>
+					<th>Imagens</th>
+					<td>127</td>
+				  </tr>
+				  <tr>
+					<th>Links (externos)</th>
+					<td>10</td>
+				  </tr>
+				  <tr>
+					<th>Vídeos</th>
+					<td>21</td>
+				  </tr>
+				  <tr>
+					<th>Animações</th>
+					<td>38</td>
+				  </tr>
+				</tbody>
+			  </table>
+		</aside>
+		<section class="layouts-container"></section>
+		<aside class="wordcloud-container">
+			<svg width="100%" height="100%">
+	<image id="wordcloud" href="{% static "imgs/wordcloud.png" %}"></image>
+	<a href="index.html">
+		<rect opacity="0.0" x="0" y="0" rx="0" ry="0" width="100%" height="100%" />
+	</a>
+	<a href="https://www.imdb.com/title/tt0078346/" target="_blank">
+		<rect opacity="0.0" x="212" y="25" rx="10" ry="10" width="220" height="40" fill="red">
+		</rect>
+	</a>
+	<a href="https://www.imdb.com/title/tt0096697/?ref_=nv_sr_srsg_0" target="_blank">
+		<rect opacity="0.0" x="212" y="65" rx="10" ry="10" width="210" height="35" fill="red">
+		</rect>
+	</a>
+	<a href="https://www.imdb.com/title/tt8111088/?ref_=nv_sr_srsg_0" target="_blank">
+		<rect opacity="0.0" x="190" y="97" rx="0" ry="0" width="270" height="32" fill="red">
+		</rect>
+	</a>
+	<a href="https://www.rottentomatoes.com/" target="_blank">
+		<rect opacity="0.0" x="152" y="127" rx="0" ry="0" width="360" height="34" fill="red">
+		</rect>
+	</a>
+	<a href="https://www.imdb.com/title/tt8111088/?ref_=nv_sr_srsg_0" target="_blank">
+		<rect opacity="0.0" x="222" y="160" rx="0" ry="0" width="202" height="30" fill="red">
+		</rect>
+	</a>
+	<a href="https://www.imdb.com/title/tt2229499/?ref_=nv_sr_srsg_0" target="_blank">
+		<rect opacity="0.0" x="167" y="185" rx="5" ry="5" width="165" height="30" fill="red">
+		</rect>
+	</a>
+	<a href="https://www.imdb.com/title/tt0499549/?ref_=nv_sr_srsg_3" target="_blank">
+		<rect opacity="0.0" x="180" y="214" rx="0" ry="0" width="140" height="28" fill="red">
+		</rect>
+	</a>
+	<a href="https://www.imdb.com/?ref_=nv_home" target="_blank">
+		<rect opacity="0.0" x="338" y="221" rx="0" ry="0" width="110" height="34" fill="red">
+		</rect>
+	</a>
+	<a href="https://www.imdb.com/title/tt0829482/?ref_=nv_sr_srsg_0" target="_blank">
+		<line opacity="0.0" x1="240" x2="360" y1="340" y2="170" stroke="red" stroke-width="40"></line>
+	</a>
+	<a href="https://www.imdb.com/title/tt3107288/?ref_=nv_sr_srsg_0" target="_blank">
+		<line opacity="0.0" x1="360" x2="455" y1="220" y2="170" stroke="red" stroke-width="38"></line>
+	</a>
+
+</svg>
+
+		</aside>
+		<aside class="tree-container">
+			<img id="tree" src="{% static "imgs/site-tree.png" %}" alt="">
+		</aside>
+
+		<form method="post" action="" class="form-container">
+            <fieldset>
+                <legend>Opiniões</legend>
+
+
+              	<section class="clareza">
+              		<label for="clareza">Clareza: (entre 0 e 100)</label>
+                	<input type="range" id="vol" name="cla" min="0" max="100" oninput="clareza.value = parseInt(cla.value)">
+                	<output name="clareza" for="cla">50</output>
+              	</section>
+
+              	<section class="rigor">
+              		<label for="rigor">Rigor (número de erros):</label>
+
+              		<section>
+                		<input type="radio" id="muitos" name="rigor" value="muitos">
+                		<label for="muitos">Muitos</label>
+                	</section>
+
+                	<section>
+                		<input type="radio" id="alguns" name="rigor" value="alguns">
+                		<label for="alguns">Alguns</label>
+                	</section>
+
+                	<section>
+                		<input type="radio" id="poucos" name="rigor" value="poucos">
+                		<label for="poucos">Poucos</label>
+                	</section>
+
+                	<section>
+                		<input type="radio" id="nenhum" name="rigor" value="nenhum">
+                		<label for="nenhum">Nenhum</label>
+              		</section>
+              	</section>
+
+
+                <section class="significancia">
+                	<label for="profundidade">Significância (focado no importante, não trivial):</label>
+
+                	<section>
+                		<input type="radio" id="objetivo" name="objetivo" value="objetivo">
+                		<label for="objetivo">Objetivo</label>
+                	</section>
+
+                	<section>
+                		<input type="radio" id="intermedio" name="intermedio" value="intermedio">
+                		<label for="intermedio">Intermédio</label>
+                	</section>
+
+					<section>
+						<input type="radio" id="redundante" name="redundante" value="redundante">
+                		<label for="redundante">Redundante</label>
+					</section>
+                </section>
+
+
+
+                <section class="originalidade">
+                	<label for="originalidade">Originalidade (criativo e original):</label>
+
+					<section>
+                		<input type="radio" id="co" name="originalidade" value="co">
+                		<label for="co">Criativo e original</label>
+                	</section>
+
+					<section>
+                		<input type="radio" id="original" name="originalidade" value="	original">
+                		<label for="original">Apenas original</label>
+                	</section>
+
+					<section>
+                		<input type="radio" id="criativo" name="originalidade" value="criativo">
+               			<label for="criativo">Apenas criativo</label>
+                	</section>
+
+ 					<section>
+                		<input type="radio" id="nenhum" name="originalidade" value="nenhum">
+                		<label for="nenhum">Nenhum dos dois</label>
+					</section>
+                </section>
+
+
+
+                <section class="caracteristicas">
+                	<label for="clubes">Assinale os atributos que classificam este website:</label>
+
+
+                	<section>
+                		<input type="checkbox" id="inovador" name="inovador" value="inovador">
+                		<label for="inovador"> Inovador</label>
+                	</section>
+
+
+                	<section>
+                		<input type="checkbox" id="aparencia" name="aparencia" value="aparencia">
+                		<label for="aparencia"> Boa aparência</label>
+                	</section>
+
+                	<section>
+                		<input type="checkbox" id="informativo" name="informativo" value="informativo">
+                		<label for="informativo"> Informativo</label>
+                	</section>
+
+
+                	<section>
+                		<input type="checkbox" id="ofensivo" name="ofensivo" value="ofensivo">
+                 		<label for="ofensivo"> Ofensivo/Impróprio</label>
+                	</section>
+                </section>
+
+
+                <section class="sugestoes">
+                	<label for="sugestoes">Sugestões de melhoria:</label>
+                	<textarea id="sugestoes-text" name="locais" rows="11" cols="100"></textarea>
+                </section>
+
+
+
+                <section class="opinioes">
+                	<label for="opiniao">Classificação global do site: (1 a 10)</label>
+                	<section>
+                		<input type="range" name="cla" min="0" max="10" oninput="clareza.value = parseInt(cla.value)">
+                	<output name="clareza" for="cla">5</output>
+                	</section>
+
+                </section>
+
+                <input type="submit" style="color: black; height:30px; width:50px">
+            </fieldset>
+        </form>
+
+	</main>
+{% endblock %}

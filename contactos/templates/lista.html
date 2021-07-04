@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <main class="nav-spacer">
+        <div class="contact-add-button">
+            <a href="{% url 'contactos:add' %}" >
+            <span class="material-icons-outlined md-36">add</span></a>
+        </div>
+
+
+
+        {% for contacto in contactos %}
+            <div class="contact-container">
+                <div>
+                    <div class="contact-info">
+                        <span class="material-icons-outlined">account_circle</span>
+                        <p>{{ contacto.nome }} {{ contacto.apelido }}</p>
+                    </div>
+                    <div class="contact-details">
+                        <ul>
+                            <li><b>Telefone: </b>{{ contacto.telefone }}</li>
+                            <li><b>Email: </b>{{ contacto.email }}</li>
+                            <li><b>Data de Nascimento: </b>{{ contacto.data_nascimento }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact-buttons">
+                    <a href="{% url 'contactos:edit' contacto.id %}">Edit</a>
+                    <a href="{% url 'contactos:remove' contacto.id %}">Remove</a>
+                </div>
+            </div>
+        {% endfor %}
+    </main>
+{% endblock %}
