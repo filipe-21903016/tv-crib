@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load mytags %}
 
 {% block heroshot %}
 
@@ -47,9 +48,9 @@
                 <div class="categoria-flex">
                     {% for show in categoria.shows.all %}
                         <a href="{% url 'tvcrib:show' show.id %}">
-                            {% with pk=show.pk|stringformat:"i" %}
+                            {% with folder=show.name|hash %}
                                 <div class="frame"
-                                     style="background-image: url('{% static "image-db/"|add:pk|add:"/card_cover.jpg" %}')">
+                                     style="background-image: url('{% static "image-db/"|add:folder|add:"/card_cover.jpg" %}')">
                                     <div class="movie-title">
                                         <h1>{{ show.name }}</h1>
                                     </div>
