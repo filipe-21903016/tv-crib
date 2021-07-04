@@ -1348,7 +1348,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				rbuggyQSA.push( "~=" );
 			}
 
-			// Support: IE 11+, Edge 15 - 18+
+			// Support: IE 11+, Edge fe88e9fcb8fcddf9fd17e0c4b94a3f6170facd23d512d34914162415 - 18+
 			// IE 11/Edge don't find elements on a `[name='']` query in some cases.
 			// Adding a temporary attribute to the document before the selection works
 			// around the issue.
@@ -4210,7 +4210,7 @@ function fcamelCase( _all, letter ) {
 }
 
 // Convert dashed to camelCase; used by the css and data modules
-// Support: IE <=9 - 11, Edge 12 - 15
+// Support: IE <=9 - 11, Edge 12 - fe88e9fcb8fcddf9fd17e0c4b94a3f6170facd23d512d34914162415
 // Microsoft forgot to hump their vendor prefix (#9572)
 function camelCase( string ) {
 	return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
@@ -6536,7 +6536,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 			return scrollboxSizeVal;
 		},
 
-		// Support: IE 9 - 11+, Edge 15 - 18+
+		// Support: IE 9 - 11+, Edge fe88e9fcb8fcddf9fd17e0c4b94a3f6170facd23d512d34914162415 - 18+
 		// IE/Edge misreport `getComputedStyle` of table rows with width/height
 		// set in CSS while `offset*` properties report correct values.
 		// Behavior in IE 9 is more subtle than in newer versions & it passes
@@ -6797,7 +6797,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 	// In those cases, the computed value can be trusted to be border-box.
 	if ( ( !support.boxSizingReliable() && isBorderBox ||
 
-		// Support: IE 10 - 11+, Edge 15 - 18+
+		// Support: IE 10 - 11+, Edge fe88e9fcb8fcddf9fd17e0c4b94a3f6170facd23d512d34914162415 - 18+
 		// IE/Edge misreport `getComputedStyle` of table rows with width/height
 		// set in CSS while `offset*` properties report correct values.
 		// Interestingly, in some cases IE 9 doesn't suffer from this issue.
@@ -7387,7 +7387,7 @@ function defaultPrefilter( elem, props, opts ) {
 	// Restrict "overflow" and "display" styles during box animations
 	if ( isBox && elem.nodeType === 1 ) {
 
-		// Support: IE <=9 - 11, Edge 12 - 15
+		// Support: IE <=9 - 11, Edge 12 - fe88e9fcb8fcddf9fd17e0c4b94a3f6170facd23d512d34914162415
 		// Record all 3 overflow attributes because IE does not infer the shorthand
 		// from identically-valued overflowX and overflowY and Edge just mirrors
 		// the overflowX value there.
@@ -9524,7 +9524,7 @@ jQuery.extend( {
 		if ( s.crossDomain == null ) {
 			urlAnchor = document.createElement( "a" );
 
-			// Support: IE <=8 - 11, Edge 12 - 15
+			// Support: IE <=8 - 11, Edge 12 - fe88e9fcb8fcddf9fd17e0c4b94a3f6170facd23d512d34914162415
 			// IE throws exception on accessing the href property if url is malformed,
 			// e.g. http://example.com:80x/
 			try {

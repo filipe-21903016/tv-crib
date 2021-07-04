@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load mytags %}
 
 {% block main %}
     <main class="frames-grid">
@@ -7,9 +8,9 @@
         {% for show in shows %}
             {% with pk=show.pk|stringformat:"i" %}
                 <a href="{% url 'tvcrib:show' pk %}">
-                    {% with pk=show.pk|stringformat:"i" %}
+                    {% with folder=show.name|hash %}
                         <div class="frame"
-                             style="background-image: url('{% static "image-db/"|add:pk|add:"/card_cover.jpg" %}')">
+                             style="background-image: url('{% static "image-db/"|add:folder|add:"/card_cover.jpg" %}')">
                             <div class="movie-title">
                                 <h1>{{ show.name }}</h1>
                             </div>

@@ -16,8 +16,9 @@
                 {% for character in show.characters.all %}
                     <div class="card">
                         {% with  character.castMember.photo.path|split|last as filename %}
-                            <img src="{% static "image-db/cast_photos/"|add:filename %}" alt="">
+                            <img src="{% static 'image-db/cast_photos/'|add:filename %}" alt="">
                         {% endwith %}
+
                         <p class="name">{{ character.castMember }}</p>
                         <p class="character-name">({{ character }})</p>
                     </div>
@@ -27,7 +28,9 @@
 
         <section class="right">
             <article class="movie-cover">
-                <img src="{% static "image-db/"|add:pk|add:"/movie_cover.jpg" %}" alt="">
+                {% with folder=show.name|hash %}
+                <img src="{% static "image-db/"|add:folder|add:"/movie_cover.jpg" %}" alt="">
+                {% endwith %}
             </article>
             <article class="text-container">
                 <h1 id="title">{{ show.name }}</h1>

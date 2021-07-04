@@ -3,7 +3,7 @@ import os
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-
+from config import settings
 from .models import *
 
 
@@ -13,6 +13,7 @@ def home(request):
     context = {
         'heroshots': [hero.split('.')[0] for hero in os.listdir('tvcrib/static/imgs/heroshots')],
         'categorias': Category.objects.all(),
+
     }
     return render(request, 'home.html', context=context)
 
@@ -25,6 +26,7 @@ def show(request, show_id):
         'show': show,
         'categoria': categorias[0],
         'pk': str(show.pk),
+        'MEDIA_URL': settings.MEDIA_ROOT,
     }
     return render(request, 'show.html', context=context)
 

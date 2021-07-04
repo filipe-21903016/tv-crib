@@ -1,5 +1,5 @@
 from django.db import models
-
+import hashlib
 
 # Create your models here.
 class Category(models.Model):
@@ -11,7 +11,7 @@ class Category(models.Model):
 
 class CastMember(models.Model):
     name = models.CharField(max_length=20)
-    photo = models.ImageField(null=True, blank=True, upload_to='cast_photos/')
+    photo = models.ImageField(null=True, blank=True, upload_to='cast_photos')
 
     def __str__(self):
         return self.name
@@ -26,11 +26,10 @@ class Character(models.Model):
 
 
 def get_movie_cover_name(instance, filename):
-    return f'{instance.pk}/movie_cover.jpg'
-
+    return f'{hashlib.sha224(bytes(instance.name, "utf-8")).hexdigest()}/movie_cover.jpg'
 
 def get_card_cover_name(instance, filename):
-    return f'{instance.pk}/card_cover.jpg'
+    return f'{hashlib.sha224(bytes(instance.name, "utf-8")).hexdigest()}/card_cover.jpg'
 
 
 class Show(models.Model):
