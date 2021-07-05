@@ -1,10 +1,10 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
 
-def login(request):
+def login_view(request,user):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -18,6 +18,6 @@ def login(request):
     return render(request, 'login.html', {'message': ""})
 
 
-def logout(request):
+def logout_view(request):
     logout(request)
     return render(request, 'login.html', {'message': "Logged out."})
