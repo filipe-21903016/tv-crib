@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 
-def login_view(request,user):
+def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
