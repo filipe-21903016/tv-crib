@@ -15,8 +15,8 @@
             <div class="cast-cards">
                 {% for character in show.characters.all %}
                     <div class="card">
-                        {% with  character.castMember.photo.path|split|last as filename %}
-                            <img src="{% static 'image-db/cast_photos/'|add:filename %}" alt="">
+                        {% with  character.castMember.name|hash as filename %}
+                            <img src="{% static 'image-db/cast_photos/'|add:filename|add:'.jpg' %}" alt="">
                         {% endwith %}
 
                         <p class="name">{{ character.castMember }}</p>

@@ -6,7 +6,7 @@ register = template.Library()
 
 @register.filter(name='split')
 def split(str):
-    return str.split('\\')
+    return str.split('\\')[-1].split(".")[0]
 
 
 @register.filter(name='hash')
