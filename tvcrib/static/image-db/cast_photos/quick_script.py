@@ -1,0 +1,63 @@
+import os
+import hashlib
+
+db = [('Harrison Ford', '/image-db/cast_photos/harrison.jpg'), ('Shia LaBeouf', '/image-db/cast_photos/shia.jpg'),
+      ('Karen Allen', '/image-db/cast_photos/karen.jpg'), ('Cate Blanchett', '/image-db/cast_photos/cate.jpg'),
+      ('Bradley Cooper', '/image-db/cast_photos/brad.jpg'), ('Sienna Miller', '/image-db/cast_photos/sienna.png'),
+      ('Luke Grimes', '/image-db/cast_photos/luke.jpg'), ('Jake McDorman', '/image-db/cast_photos/jake.jpg'),
+      ('Bruce Willis', '/image-db/cast_photos/bruce.jpg'), ('Billy Bob Thornton', '/image-db/cast_photos/billy.jpg'),
+      ('Ben Affleck', '/image-db/cast_photos/ben.jpg'), ('Liv Tyler', '/image-db/cast_photos/liv.jpg'),
+      ('Will Patton', '/image-db/cast_photos/will.jpg'), ('Sacha Cohen', '/image-db/cast_photos/sacha.jpg'),
+      ('Ken Davitian', '/image-db/cast_photos/ken.jpg'), ('Luenell', '/image-db/cast_photos/luenell.jpg'),
+      ('Pamela Anderson', '/image-db/cast_photos/pamela.jpg'), ('Ryan Reynolds', '/image-db/cast_photos/ryan.jpg'),
+      ('Morena Baccarin', '/image-db/cast_photos/morena.jpg'),
+      ('Brianna Hildebrand', '/image-db/cast_photos/brianna.jpg'), ('Gina Carano', '/image-db/cast_photos/gina.jpg'),
+      ('T.J Miller', '/image-db/cast_photos/tj.jpg'), ('Ralph Fiennes', '/image-db/cast_photos/ralph.jpg'),
+      ('Michael Gambon', '/image-db/cast_photos/michael.jpg'), ('Alan Rickman', '/image-db/cast_photos/alan.jpg'),
+      ('Daniel Radcliffe', '/image-db/cast_photos/daniel.jpg'), ('Rupert Grint', '/image-db/cast_photos/rupert.jpg'),
+      ('Emma Watson', '/image-db/cast_photos/emma.jpg'), ('Ice Cube', '/image-db/cast_photos/ice.jpg'),
+      ('Kevin Hart', '/image-db/cast_photos/kevin.jpg'), ('John Leguizamo', '/image-db/cast_photos/john.jpg'),
+      ('Bruce McGill', '/image-db/cast_photos/bruce.jfif'), ('Tika Sumpter', '/image-db/cast_photos/tika.jpg'),
+      ('Bryan Callen', '/image-db/cast_photos/bryan.jpg'), ('Tom Hanks', '/image-db/cast_photos/tom.jpg'),
+      ('Matt Damon', '/image-db/cast_photos/matt.jpg'), ('Edward Burns', '/image-db/cast_photos/edward.jpg'),
+      ('Vin Diesel', '/image-db/cast_photos/vin.jpg'), ('Mark Hamill', '/image-db/cast_photos/mark.jpg'),
+      ('Carrie Fisher', '/image-db/cast_photos/carrie.jpg'), ('Adam Driver', '/image-db/cast_photos/adam.jpg'),
+      ('Daisy Ridley', '/image-db/cast_photos/daisy.png'), ('John Boyega', '/image-db/cast_photos/john_Q8O3cB4.jpg'),
+      ('Oscar Isaac', '/image-db/cast_photos/oscar.jpg'), ('Christian Bale', '/image-db/cast_photos/christian.jpg'),
+      ('Heath Ledger', '/image-db/cast_photos/heath.jpg'), ('Aaron Eckhart', '/image-db/cast_photos/aaron.jpg'),
+      ('Maggie Gyllenhaal', '/image-db/cast_photos/maggie.jpg'),
+      ('Michael Caine', '/image-db/cast_photos/michael_hVWgMfL.jpg'),
+      ('Michael Jackson', '/image-db/cast_photos/michael_UbhbzgV.jpg'),
+      ('Kenny Ortega', '/image-db/cast_photos/kenny.jpg'), ('Alex Al', '/image-db/cast_photos/alex.png'),
+      ('Michael Bearden', '/image-db/cast_photos/michaelB.jfif'), ('Johnny Depp', '/image-db/cast_photos/johnny.jpg'),
+      ('Jim Morrison', '/image-db/cast_photos/jim.jpg'), ('Ray Manzarek', '/image-db/cast_photos/ray.jfif'),
+      ('Robby Krieger', '/image-db/cast_photos/robby.jpg'), ('John Densmore', '/image-db/cast_photos/john_QGOAGeE.jpg'),
+      ('Grant Gustin', '/image-db/cast_photos/grant.jpg'), ('Candice Patton', '/image-db/cast_photos/candice.jpg'),
+      ('Danielle Panabaker', '/image-db/cast_photos/danielle.jpg'),
+      ('Tom Cavanagh', '/image-db/cast_photos/tom_ga9KBzq.jpg'), ('Carlos Valdes', '/image-db/cast_photos/carlos.jpg'),
+      ('Anthony Mackie', '/image-db/cast_photos/anthony.jpg'),
+      ('Sebastian Stan', '/image-db/cast_photos/sebastian.jpg'), ('Wyatt Russell', '/image-db/cast_photos/wyatt.png'),
+      ('Erin Kellyman', '/image-db/cast_photos/erin.jpg'), ('Desmond Chiam', '/image-db/cast_photos/desmond.jpg'),
+      ('Dani Deetté', '/image-db/cast_photos/dani.jpeg'), ('Justin Roiland', '/image-db/cast_photos/justin.jpg'),
+      ('Chris Parnell', '/image-db/cast_photos/chris.jpg'), ('Spencer Grammer', '/image-db/cast_photos/spencer.jpg'),
+      ('Sarah Chalke', '/image-db/cast_photos/sarah.jpg'), ("Ed O'Neill", '/image-db/cast_photos/ed.jpg'),
+      ('Sofía Vergara', '/image-db/cast_photos/sofia.jpg'), ('Julie Bowen', '/image-db/cast_photos/julie.jfif'),
+      ('Ty Burrell', '/image-db/cast_photos/ty.jpg'), ('Jesse Tyler Ferguson', '/image-db/cast_photos/jesse.jpg'),
+      ('Eric Stonestreet', '/image-db/cast_photos/eric.jpg'), ('Phil Jackson', '/image-db/cast_photos/phil.jfif'),
+      ('Michael Jordan', '/image-db/cast_photos/michael_rNcDwf8.jpg'),
+      ('David Aldridge', '/image-db/cast_photos/david.jfif'), ('Scottie Pippen', '/image-db/cast_photos/scottie.jpg'),
+      ('James May', '/image-db/cast_photos/james.jpg'), ('Yujiro Taniyama', '/image-db/cast_photos/yujiro.jpg'),
+      ('Masayo Fujii', '/image-db/cast_photos/masayo.jfif'), ('Shad', '/image-db/cast_photos/shad.jfif'),
+      ('LL Cool J', '/image-db/cast_photos/ll.jpg'), ('Alonzo Williams', '/image-db/cast_photos/alonzo.jpg'),
+      ('Melle Mel', '/image-db/cast_photos/melle.jpg'), ('Andy Samberg', '/image-db/cast_photos/andy.jpg'),
+      ('Stephanie Beatriz', '/image-db/cast_photos/stephanie.jpg'), ('Terry Crews', '/image-db/cast_photos/terry.jpg'),
+      ('Melissa Fumero', '/image-db/cast_photos/melissa.jpg'), ('Joe Lo Truglio', '/image-db/cast_photos/joe.jpg'),
+      ('Andre Braugher', '/image-db/cast_photos/andre.jpg'), ('Dirk Blocker', '/image-db/cast_photos/dirk.jpg'),
+      ('Joel McKinnon Miller', '/image-db/cast_photos/joel.jfif')]
+
+dirs = os.listdir(os.getcwd())
+for dir in dirs:
+    for (name, path) in db:
+        filename = path.split('/')[-1]
+        if dir == filename:
+            os.rename(dir, f'{hashlib.sha224(bytes(name, "utf-8")).hexdigest()}.jpg')
